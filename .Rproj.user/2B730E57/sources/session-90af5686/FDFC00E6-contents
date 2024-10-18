@@ -4,6 +4,8 @@ author: "Giordani"
 format: html
 editor: visual
 output-file: index
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
@@ -26,7 +28,7 @@ anova(modelo)
 
 str(fb)
 ```
-# creando diagrama
+# creando diagrama bos plot
 ```{r}
 ggplot(fb, aes(x = factor(geno), y = lfa, fill = factor(riego))) +
   geom_boxplot()+
