@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+
+
+
+# DBCA --------------------------------------------------------------------
+
+# Definir los tratamientos
+dosis <- c(0, 50, 100,150)
+
+#Definir el numero de repeticiones
+repeticiones <- 5
+
+#Generar el diseño completamente ramdomizado
+dcr<- design.crd(trt=dosis, r = repeticiones, serie = 1)
+
+# Mostrar el diseño generado
+print(dcr)
+
+# Visualizar la disposicion de las parcelas experimentales
+dcr$book
+
+str(dcr)
+dcr$parameters
+
+# Dosis de fertilizante
+variedades <- c("peruanita", "canchan ")  
+
+
+# Crear todas las combinaciones de tratamientos
+trts <- expand.grid(dosis = dosis, variedad = variedades)
+
+
+# Número de repeticiones (bloques)
+repeticiones <- 5
+
+
+# Crear el diseño factorial
+set.seed(123) 
+# Para reproducibilidad
+diseño_factorial <- design.fat(trts = trts, r = repeticiones)
+
+# Mostrar el diseño
+print(diseño_factorial)
+
+# design.ab() ---------------------------------------------------------------
+
+library(agricolae)
+trt<-c(3,2) # factorial 3x2
+outdesing<-desing.ab(trt, r=5, serie=2)
+book<-outdesign$book
+head(book,10) #print of the field book
+
+
