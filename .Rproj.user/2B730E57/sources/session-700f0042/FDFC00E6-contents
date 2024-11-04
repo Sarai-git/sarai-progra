@@ -140,36 +140,6 @@ ggplot(mc, aes(x = geno, y = emmean, fill = riego)) +
 ```
 
 
-## Modelo lineal mixto:lfa
-```{r}
-library(lme4)
-
-library(lmerTest)
-library(ggplot2)
-
-model <- lmer(lfa ~ riego + geno + riego*geno + (1|bloque), data = fb)
-
-model <- lme4::lmer(lfa ~ riego + geno + riego*geno + (1|bloque), data = fb)
-
-
-anova(model)
-
-plot(model)
-
-# box plot
-
-ol <- boxplot(lfa ~ riego*geno, fb)
-
-```
-```{r}
-library(inti)
-
-model<-remove_outliers(data=fb
-                       , formula =lfa ~ riego + geno + riego*geno + (1|bloque) 
-                       ,plot_diag = T)
-model
-```
-
 
 
 ##Modelo lineal: hi
@@ -181,7 +151,7 @@ plot(modelo)
 
 # box plot
 ol <- boxplot(hi ~ riego*geno, fb)
-
+ol
 ```
 
 
