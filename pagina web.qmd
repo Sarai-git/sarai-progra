@@ -8,7 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Modelo lineales mixtos
+# Modelo lineales y  mixtos
 ## Importar datos
 ```{r}
 source('https://inkaverse.com/setup.r')
@@ -93,6 +93,7 @@ mc<-emmeans(modelo, ~ geno|riego) %>%
 
 mc
 ```
+
 ### Plot 
 ```{r}
 ggplot(mc, aes(x = geno, y = emmean, fill = riego)) +
@@ -102,6 +103,22 @@ ggplot(mc, aes(x = geno, y = emmean, fill = riego)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+
+
+## Modelo lineal mixto:lfa
+```{r}
+library(lme4)
+library(lmerTest)
+
+model <- lme4::lmer(lfa ~ riego + geno + riego*geno + (1|bloque), data = fb)
+
+anova(model)
+
+plot(model)
+
+```
+
 
 ## Quarto
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.

@@ -1,0 +1,34 @@
+ # FORMA DE COMPARA MEDIAS:
+modelo <- lm(formula = lfa ~ bloque + geno + riego + riego*geno , data = fb )
+
+anova(modelo)
+
+library(agricolae)
+
+tukey_result <- HSD.test(modelo
+                         , c("geno", "riego")
+                         , group = TRUE)
+print(tukey_result) 
+
+plot(tukey_result)
+##
+library(tidyverse)
+
+grupos <- tukey_result$groups %>% 
+  rownames_to_column("tratamientos") %>% 
+  separate(tratamientos, into = c("geno", "riego")
+           , sep = ":")
+
+str(grupos)
+
+## ggplot
+ggplot(grupos, aes(x = geno, y = lfa, fill = riego)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  geom_text(aes(label = groups, y = lfa + 0.05), 
+            position = position_dodge(width = 0.9), 
+            vjust = 0) +
+  labs(x = "Genotipo", y = "LFA", fill = "Riego") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Gráfico de barras: LFA por genotipo y riego")
+  
