@@ -1,6 +1,10 @@
 ---
 title: "Pagina web"
 author: "Giordani"
+toc: true
+toc-location: left
+embed-resources: true
+number-sections: true
 format: html
 editor: visual
 output-file: index
