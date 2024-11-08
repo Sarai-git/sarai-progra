@@ -14,7 +14,7 @@ editor_options:
 # ¿Que es Quarto?
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-#Mi primera página web
+# Mi primera página web
 Tener mi proyecto
 Conectar mi proyecto a Github
 Tener un archivo en formato html llamadoindex.html
@@ -93,7 +93,7 @@ model
 
 # Comparacion de medias
 
-##Comparacion de medias:library(agricolae)
+## Comparacion de medias:library(agricolae)
 
 ```{r}
 library(agricolae)
