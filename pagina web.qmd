@@ -7,9 +7,20 @@ output-file: index
 editor_options: 
   chunk_output_type: console
 ---
+# ¿Que es Quarto?
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-# Modelo lineales y  mixtos
+#Mi primera página web
+Tener mi proyecto
+Conectar mi proyecto a Github
+Tener un archivo en formato html llamadoindex.html
+Hacer push al repositorio
+Activar páginas de Github
+
+# Modelo lineales y mixtos
+
 ## Importar datos
+
 ```{r}
 source('https://inkaverse.com/setup.r')
 library(googlesheets4)
@@ -25,7 +36,7 @@ fb<- gs %>%
 str(fb)
 ```
 
-# modelo lineal:lfa
+## modelo lineal:lfa
 
 ```{r}
 modelo <- aov(formula = lfa ~ bloque + geno + riego + riego*geno , data = fb )
@@ -35,7 +46,7 @@ anova(modelo)
 plot(modelo)
 ```
 
-##creando diagrama de caja
+## Creando diagrama de caja
 
 ```{r}
 ggplot(fb, aes(x = factor(geno), y = lfa, fill = factor(riego))) +
@@ -46,7 +57,9 @@ ggplot(fb, aes(x = factor(geno), y = lfa, fill = factor(riego))) +
   ggtitle("Boxplot de LFA por Genotipo y Riego")
 
 ```
+
 # Modelo lineal mixto: lfa
+
 ```{r}
 library(lme4)
 
@@ -58,10 +71,12 @@ anova(model)
 plot(model)
 
 ```
+
 ```{r}
 ol <- boxplot(lfa ~ riego*geno, fb)
 ol
 ```
+
 ```{r}
 library(inti)
 
@@ -75,6 +90,7 @@ model
 # Comparacion de medias
 
 ##Comparacion de medias:library(agricolae)
+
 ```{r}
 library(agricolae)
 
@@ -105,7 +121,9 @@ mc<- tukey_interaction$groups %>%
 str(mc)
 names(mc)
 ```
+
 ## Grafico en ggplot
+
 ```{r}
 ggplot(mc, aes(x = variedad, y = lfa, fill = riego)) +
   geom_bar(stat = "identity", position = position_dodge()) +
@@ -115,47 +133,106 @@ ggplot(mc, aes(x = variedad, y = lfa, fill = riego)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))+
   ggtitle("Gráfico de barras: LFA por genotipo y riego")
 ```
+
 ## Comparacion de medias: emmeans
 
 ```{r}
-library(emmeans)
+library(lme4)
+library (emmeans)
+library(dplyr)
+library(multcompView)
 
-mc<- emmeans(modelo, ~ riego * geno)
-mc<- emmeans(modelo, ~ riego|geno)
+modelo <- lme4::lmer(lfa ~ (1|bloque) + geno*riego
+                     , data = fb)
 
-mc<-emmeans(modelo, ~ geno|riego) %>%
-  as.data.frame()
-
-mc
-```
-
-### Plot 
-```{r}
-ggplot(mc, aes(x = geno, y = emmean, fill = riego)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-# geom_text(aes(label = emmean), position = position_dodge(0.9), vjust = -0.5) +
-  labs(x = "Variedad", y = "LFA", fill = "Riego") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-
-
-
-
-##Modelo lineal: hi
-```{r}
-
-modelo <- aov (formula = hi ~ bloque + geno + riego + riego*geno , data = fb )
 anova(modelo)
-plot(modelo)
 
-# box plot
-ol <- boxplot(hi ~ riego*geno, fb)
-ol
+cm1 <- emmeans(modelo, ~ geno | riego) %>% 
+  cld (Letters = letters, reversed = T)
+
+cm1
+
+cm2 <- emmeans(modelo, ~ riego | geno) %>% 
+  cld(Letters = letters, reversed = T)
+
+cm2
+
+cm3 <- emmeans(modelo, ~ riego * geno) %>% 
+ cld (Letters = letters, reversed = T)
+
+cm3
+
+
 ```
 
+## Grafico
+
+```{r}
+dtcm <- as.data.frame(cm2) %>% 
+  rename(sig = ".group")
+
+ggplot(dtcm, aes(x = geno, y = emmean, fill = riego)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  geom_text(aes(label = sig, y = emmean*1.05),
+            position = position_dodge(width = 0.9),
+            vjust = 0) +
+  labs(x = "Genotipo", y = "lfa", fill = "Riego") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Gráfico de barras: lfa por genotipo y riego")
+
+```
+# Análisis multivariado
+```{r}
+str(fb)
+
+
+```
+## Correlacion
+```{r}
+library(psych)
+
+fb %>% 
+  select_if(is.numeric) %>% 
+  dplyr::select(!c("block")) %>% 
+  pairs.panels(x = .
+               , hist.col="red"
+               , pch = 21
+               , stars = TRUE
+               , scale = FALSE
+               , lm = TRUE
+               )
+```
+
+
+## PCA: Análisis de componentes principales
+
+```{r}
+library(FactoMineR)
+
+mv <- fb %>% 
+  group_by(riego, geno) %>% 
+  summarise(across(where(is.numeric), ~ mean(., na.rm = TRUE))) %>% 
+  PCA(scale.unit = T, quali.sup = c(1:4), graph = F)
+
+
+p1 <- plot(mv
+     , choix="ind"
+     , habillage=1
+     , label = "ind"
+     )
+
+
+p2 <- plot(mv
+     , choix="var")
+
+list(p1, p2) %>% 
+  plot_grid(plotlist = ., nrow = 1)
+
+```
 
 ## Quarto
+
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ## Running Code
