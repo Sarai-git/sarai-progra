@@ -1,0 +1,59 @@
+---
+title: ""Cultivo de Durazno""
+author: "Guelac Eunis, Mego Stefani, Rodriguez Ruth, Puerta Giordani, Luis Omar"
+toc: true
+toc-location: left
+embed-resources: true
+number-sections: true
+format: html
+editor: visual
+output-file: index
+editor_options: 
+  chunk_output_type: console
+---
+# Introduccion 
+```{r}
+#Anaconda es una distribución de Python y R que incluye herramientas para ciencia de datos, desarrollo y machine learning.
+# Gestión de Entornos: permite crear y manejar entornos aislados, evitando conflictos entre dependencias
+# Anaconda Navigator: interfaz gráfica para gestionar paquetes, entornos y acceder a herramientas como Jupyter Notebook
+# Conda: gestor de paquetes y entornos, simplifica la instalación y actualización de dependencias
+# Usos: ideal para ciencia de datos, análisis y machine learning. 
+```
+# Desarrollo
+```{r}
+# Descargar Anaconda para la computadora
+#Desde el siguiente link: https://www.anaconda.com/download/success
+#En este caso se descargo miniconda.
+
+# Instalacion del miniconda
+# Para ejecutar el programa se copia el codigo de la base de label studio en la ventana anaconda pronpt.
+
+
+# Una ves ejecutado los codigos correctamente te llevara a una ventana de navegacion para iniciar secion o crear una cuenta.
+
+# Se crea el proyecto y se elige la segmentacion para trabajar.
+
+# Se elige los colores y se nombra los elementos currency y sheet.
+```
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

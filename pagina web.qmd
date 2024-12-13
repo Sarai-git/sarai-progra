@@ -11,15 +11,14 @@ output-file: index
 editor_options: 
   chunk_output_type: console
 ---
+
 # ¿Que es Quarto?
+
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 # Mi primera página web
-Tener mi proyecto
-Conectar mi proyecto a Github
-Tener un archivo en formato html llamadoindex.html
-Hacer push al repositorio
-Activar páginas de Github
+
+Tener mi proyecto Conectar mi proyecto a Github Tener un archivo en formato html llamadoindex.html Hacer push al repositorio Activar páginas de Github
 
 # Modelo lineales y mixtos
 
@@ -186,13 +185,17 @@ ggplot(dtcm, aes(x = geno, y = emmean, fill = riego)) +
   ggtitle("Gráfico de barras: lfa por genotipo y riego")
 
 ```
-# Análisis multivariado
+
+\# Análisis multivariado
+
 ```{r}
 str(fb)
 
 
 ```
+
 ## Correlacion
+
 ```{r}
 library(psych)
 
@@ -207,7 +210,6 @@ fb %>%
                , lm = TRUE
                )
 ```
-
 
 ## PCA: Análisis de componentes principales
 
