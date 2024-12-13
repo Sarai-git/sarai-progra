@@ -13,7 +13,105 @@ editor_options:
 url: https://github.com/Sarai-git/sarai-progra.git
 ---
 
----
+------------------------------------------------------------------------
+
+# Introduccion
+
+```{r}
+" ¿Qué es Anaconda?
+Una distribución de Python y R que incluye
+herramientas para ciencia de datos, desarrollo y
+machine learning.
+Gestión de Entornos: permite crear y
+manejar entornos aislados, evitando
+conflictos entre dependencias
+Anaconda Navigator: interfaz gráfica para
+gestionar paquetes, entornos y acceder a
+herramientas como Jupyter Notebook
+Conda: gestor de paquetes y entornos,
+simplifica la instalación y actualización de
+dependencias
+Usos:ideal para ciencia de datos, análisis y
+machine learning"
+```
+
+# Desarollo
+
+```{r}
+"Se inicia por descargar anaconda de la plataforma google"
+```
+
+![](descargar.jpg)
+
+```{r}
+"Se instala el programa en la computadora y al momento de ejecutar se abre la ventana Anaconda Prompt"
+```
+
+![](imagen.jpg)
+
+```{r}
+"Una vez abierta la ventana se copia los codigos de label studio y se ejecuta."
+```
+
+![](ima.jpg)
+
+```{r}
+"Si se efectuo bien los codigos te llevara al navegador de label studio para iniciar sesion o crearte una cuenta."
+```
+
+![](mag.jpg)
+
+```{r}
+"En la seccion de crear proyecto se importa las imagenes en formato JPG"
+```
+
+![](port.jpg)
+
+```{r}
+"Se elige la segmentacion con la que se desea trabajar"
+```
+
+![](seg.jpg)
+
+```{r}
+"Seleccion de los colores y nombres de los elementos"
+```
+
+![](co.jpg)
+
+```{r}
+"Delimitacion de la hoja y la moneda"
+```
+
+![](de.jpg)
+
+```{r}
+"La moneda se delimita para la seleccion de la imagen"
+```
+
+![](mo.jpg)
+
+```{r}
+"El resultado final "
+```
+
+![](fi.jpg)
+
+# Conclusion
+
+```{r}
+"El impacto de la IA en la sostenibilidad y
+productividad agrícola
+La integración de la IA con tecnologías de
+fenómica y genómica transforma la conservación
+de recursos genéticos para una agricultura
+sostenible y adaptada al cambio climático
+Inversiones en investigación, políticas inclusivas y
+colaboración internacional para aprovechar el
+potencial de la IA"
+```
+
+![](labe.jpg)
 
 ## Quarto
 
