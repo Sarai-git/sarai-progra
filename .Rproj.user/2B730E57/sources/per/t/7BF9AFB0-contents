@@ -1,5 +1,5 @@
 ---
-title: ""Cultivo de Durazno""
+title: "Cultivo de Durazno"
 author: "Guelac Eunis, Mego Stefani, Rodriguez Ruth, Puerta Giordani, Luis Omar"
 toc: true
 toc-location: left
@@ -13,17 +13,11 @@ editor_options:
 ---
 # Introduccion 
 ```{r}
-#Anaconda es una distribución de Python y R que incluye herramientas para ciencia de datos, desarrollo y machine learning.
-# Gestión de Entornos: permite crear y manejar entornos aislados, evitando conflictos entre dependencias
-# Anaconda Navigator: interfaz gráfica para gestionar paquetes, entornos y acceder a herramientas como Jupyter Notebook
-# Conda: gestor de paquetes y entornos, simplifica la instalación y actualización de dependencias
-# Usos: ideal para ciencia de datos, análisis y machine learning. 
+# Anaconda es una distribución de Python y R que incluye herramientas para ciencia de datos, desarrollo y machine learning.                        Gestión de Entornos: permite crear y manejar entornos aislados, evitando conflictos entre dependencias.                                          Anaconda Navigator: interfaz gráfica para gestionar paquetes, entornos y acceder a herramientas como Jupyter Notebook                             Conda: gestor de paquetes y entornos, simplifica la instalación y actualización de dependencias.                                            Usos: ideal para ciencia de datos, análisis y machine learning. 
 ```
 # Desarrollo
 ```{r}
-# Descargar Anaconda para la computadora
-#Desde el siguiente link: https://www.anaconda.com/download/success
-#En este caso se descargo miniconda.
+# Descargar Anaconda para la computadora desde el siguiente link: https://www.anaconda.com/download/success. En este caso se descargo miniconda.
 
 # Instalacion del miniconda
 # Para ejecutar el programa se copia el codigo de la base de label studio en la ventana anaconda pronpt.

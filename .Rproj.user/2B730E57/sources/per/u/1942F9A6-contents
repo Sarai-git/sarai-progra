@@ -1,0 +1,51 @@
+---
+title: "Untitled"
+author: '"Guelac Eunis, Mego Stefani, Puerta Giordani, Luis Omar"'
+date: "2024-12-13"
+output: html_document
+---
+# Introduccion 
+```{r}
+Anaconda es una distribución de Python y R que incluye herramientas para ciencia de datos, desarrollo y machine learning.                        
+Gestión de Entornos: permite crear y manejar entornos aislados, evitando conflictos entre dependencias.                                          
+Anaconda Navigator: interfaz gráfica para gestionar paquetes, entornos y acceder a herramientas como Jupyter Notebook                             
+Conda: gestor de paquetes y entornos, simplifica la instalación y actualización de dependencias.  
+Usos: ideal para ciencia de datos, análisis y machine learning. 
+```
+# Desarrollo 
+```{r}
+Descargar Anaconda para la computadora desde el siguiente link: https://www.anaconda.com/download/success. En este caso se descargo miniconda.
+
+Instalacion del miniconda
+Para ejecutar el programa se copia el codigo de la base de label studio en la ventana anaconda pronpt.
+
+Una ves ejecutado los codigos correctamente te llevara a una ventana de navegacion para iniciar secion o crear una cuenta.
+
+Se crea el proyecto y se elige la segmentacion para trabajar.
+
+Se elige los colores y se nombra los elementos currency y sheet.
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
